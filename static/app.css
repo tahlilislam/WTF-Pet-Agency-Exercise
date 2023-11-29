@@ -1,0 +1,22 @@
+.cover-img {
+    height: 250px; /* Fixed height */
+    width: 100%; /* Full width of the container */
+    object-fit: cover; /* Cover the container */
+    display: block; /* Ensures the div is block level */
+
+}
+.cover-img-edit {
+    height: 400px; /* Fixed height */
+    width: 100%; /* Full width of the container */
+    object-fit: cover; /* Cover the container */
+    display: block; /* Ensures the div is block level */
+
+}
+
+.cover-img-detail {
+    height: 100%; /* Fixed height */
+    width: 100%; /* Full width of the container */
+    object-fit: cover; /* Cover the container */
+    display: block; /* Ensures the div is block level */
+
+}

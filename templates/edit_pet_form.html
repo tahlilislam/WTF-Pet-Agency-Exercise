@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container">
+    <h1 class="display-3 text-center">Edit {{pet.name}}'s Details</h1>
+    <div class="row justify-content-center">
+
+        {% if pet.photo_url %}
+        <img class="img-fluid cover-img-edit mb-4" src="{{ pet.photo_url }}">
+        {% endif %}
+
+        <form method="POST">
+          {{ form.hidden_tag() }}
+
+          {% for field in form if field.widget.input_type != 'hidden'%}
+          {% if field.widget.input_type == 'checkbox' %}
+          <div class="form-check">
+              {{ field(class_='form-check-input') }}
+              {{ field.label(class_='form-check-label') }}
+          </div>
+            {% else %}
+
+          <div class="form-group mb-2">
+              {{ field.label(class_='form-label') }}
+              {{ field(class_='form-control') }}
+          </div>
+            {% endif %}
+
+
+            {% for err in field.errors %}
+            <small class="form-text text-danger">
+              {{err}}
+            </small>
+            {% endfor %}
+          {% endfor %}
+
+          <div class="mt-4">
+            <button class="btn  btn-success  btn-lg">Update</button>
+            <a href="/" class="btn btn-outline-primary btn-lg">Cancel</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  {%endblock%}

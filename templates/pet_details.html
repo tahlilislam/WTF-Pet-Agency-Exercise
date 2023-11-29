@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container-md">
+    <h5>{{pet.name}}</h5>
+    <p>{{pet.species}}</p>
+    {% if pet.photo_url %}
+        <img class="img-fluid cover-img-detail mb-4" src="{{ pet.photo_url }}">
+    {% endif %}
+    {% if pet.age %}
+        <p>Pet's Age: {{pet.age}}</p>
+    {% endif %}
+    {% if pet.notes %}
+       <p>{{pet.notes}}</p>
+    {% endif %}
+
+</div>
+<a href="/" class="btn btn-outline-primary btn-lg">Go Back</a>
+
+{%endblock%}

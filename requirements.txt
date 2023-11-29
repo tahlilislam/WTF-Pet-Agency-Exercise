@@ -1,0 +1,8 @@
+Flask-DebugToolbar
+Flask-SQLAlchemy
+Flask-WTF
+psycopg2-binary
+SQLAlchemy
+WTForms
+Flask==2.3.3
+Werkzeug==2.3.7

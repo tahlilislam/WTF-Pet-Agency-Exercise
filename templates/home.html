@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Available Pets {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for pet in pets %}
+            {% if pet.available %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        {% if pet.photo_url.startswith('http') %}
+                        <!-- External URL -->
+                        <img src="{{ pet.photo_url }}" alt="Picture of {{ pet.name }}" class="card-img-top cover-img">
+                        {% else %}
+                        <!-- Local file path -->
+                        <img src="{{ url_for('static', filename= 'images/pet-avatar.png') }}" alt="Picture of {{ pet.name }}" class="card-img-top cover-img">
+                        {% endif %}
+                        <div class="card-body">
+                            <a href="/{{pet.id}}"> <h5 class="card-title">{{ pet.name }} <small>(Edit)</small></h5> </a>
+                            
+                            <p class="card-text">Available for adoption!</p>
+                            <a href="/detail/{{pet.id}}"> View Pet Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="col-12">
+                <p class="text-center">No pets available at the moment.</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="/add" class="btn btn-primary btn-lg">Add Pet</a>
+    </div>
+</div>
+
+
+{% endblock %}
